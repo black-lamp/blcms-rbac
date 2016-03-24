@@ -1,0 +1,23 @@
+{
+  "name": "black-lamp/yii2-rbac",
+  "description": "Rbac extension for the Yii framework",
+  "keywords": ["yii2", "rbac"],
+  "version": "0.0.1-dev",
+  "type": "yii2-extension",
+  "authors": [
+      {
+        "name": "Cherednyk Maxim",
+        "email": "maks757q@gmail.com"
+      }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": ">=2.0.4",
+    "yiisoft/yii2-bootstrap": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "bl\\rbac\\": ""
+    }
+  }
+}
