@@ -1,8 +1,7 @@
 {
-  "name": "black-lamp/yii2-rbac",
+  "name": "black-lamp/blcms-rbac",
   "description": "Rbac extension for the Yii framework",
   "keywords": ["yii2", "rbac"],
-  "version": "0.0.1-dev",
   "type": "yii2-extension",
   "authors": [
       {
