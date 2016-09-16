@@ -46,13 +46,13 @@ $this->title = "Пользователи";
                         </tr>
                         </thead>
                         <tbody>
-                        <? foreach ($userList as $user): ?>
-                            <? $userRoles = Yii::$app->authManager->getRolesByUser($user->id) ?>
+                        <?php foreach ($userList as $user): ?>
+                            <?php $userRoles = Yii::$app->authManager->getRolesByUser($user->id) ?>
                             <tr>
                                 <td><?= $user->username ?></td>
                                 <td><?= $user->email ?></td>
                                 <td>
-                                    <? foreach ($userRoles as $role): ?>
+                                    <?php foreach ($userRoles as $role): ?>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-xs btn-info">
                                                 <?= $role->description ?>
@@ -62,10 +62,10 @@ $this->title = "Пользователи";
                                                 <i class="glyphicon glyphicon-remove"></i>
                                             </a>
                                         </div>
-                                    <? endforeach ?>
+                                    <?php endforeach ?>
                                 </td>
                             </tr>
-                        <? endforeach ?>
+                        <?php endforeach ?>
                         </tbody>
                     </table>
                 </div>
@@ -109,12 +109,12 @@ $this->title = "Пользователи";
                         </tr>
                         </thead>
                         <tbody>
-                        <? foreach ($roleList as $role): ?>
+                        <?php foreach ($roleList as $role): ?>
                             <tr>
                                 <td><?= $role->name ?></td>
                                 <td><?= $role->description ?></td>
                                 <td>
-                                    <? foreach (Yii::$app->authManager->getPermissionsByRole($role->name) as $permission): ?>
+                                    <?php foreach (Yii::$app->authManager->getPermissionsByRole($role->name) as $permission): ?>
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-xs btn-info">
                                                 <?= $permission->name ?>
@@ -124,10 +124,10 @@ $this->title = "Пользователи";
                                                 <i class="glyphicon glyphicon-remove"></i>
                                             </a>
                                         </div>
-                                    <? endforeach ?>
+                                    <?php endforeach ?>
                                 </td>
                             </tr>
-                        <? endforeach ?>
+                        <?php endforeach ?>
                         </tbody>
                     </table>
                 </div>
@@ -164,12 +164,12 @@ $this->title = "Пользователи";
                         </thead>
                         <tbody>
 
-                        <? foreach ($permissionList as $permission): ?>
+                        <?php foreach ($permissionList as $permission): ?>
                             <tr>
                                 <td><?= $permission->name ?></td>
                                 <td><?= $permission->description ?></td>
                             </tr>
-                        <? endforeach ?>
+                        <?php endforeach ?>
                         </tbody>
                     </table>
                 </div>
@@ -190,7 +190,7 @@ $this->title = "Пользователи";
 <div class="modal fade" id="createUserFormModel" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <? $createUserForm = ActiveForm::begin([
+            <?php $createUserForm = ActiveForm::begin([
                 'action' => Url::to(['user/create']),
                 'enableAjaxValidation' => true
             ]) ?>
@@ -241,7 +241,7 @@ $this->title = "Пользователи";
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <input type="submit" class="btn btn-primary pull-right" value="Добавить">
             </div>
-            <? ActiveForm::end(); ?>
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 </div>
@@ -250,7 +250,7 @@ $this->title = "Пользователи";
 <div class="modal fade" id="createRoleFormModel" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <? $createRoleForm = ActiveForm::begin([
+            <?php $createRoleForm = ActiveForm::begin([
                 'action' => Url::to(['role/create']),
                 'enableAjaxValidation' => true
             ]) ?>
@@ -284,7 +284,7 @@ $this->title = "Пользователи";
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <input type="submit" class="btn btn-primary pull-right" value="Добавить">
             </div>
-            <? ActiveForm::end(); ?>
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 </div>
@@ -293,7 +293,7 @@ $this->title = "Пользователи";
 <div class="modal fade" id="createPermissionFormModel" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <? $createPermissionForm = ActiveForm::begin([
+            <?php $createPermissionForm = ActiveForm::begin([
                 'action' => Url::to(['permission/create']),
                 'enableAjaxValidation' => true
             ]) ?>
@@ -327,7 +327,7 @@ $this->title = "Пользователи";
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <input type="submit" class="btn btn-primary pull-right" value="Добавить">
             </div>
-            <? ActiveForm::end(); ?>
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 </div>
@@ -336,7 +336,7 @@ $this->title = "Пользователи";
 <div class="modal fade" id="addPermissionToRoleFormModel" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <? ActiveForm::begin([
+            <?php ActiveForm::begin([
                 'action' => Url::to(['role/add-permission']),
                 'enableAjaxValidation' => true
             ]) ?>
@@ -366,7 +366,7 @@ $this->title = "Пользователи";
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <input type="submit" class="btn btn-primary pull-right" value="Добавить">
             </div>
-            <? ActiveForm::end(); ?>
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 </div>
@@ -375,7 +375,7 @@ $this->title = "Пользователи";
 <div class="modal fade" id="addRoleToUserFormModel" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <? ActiveForm::begin([
+            <?php ActiveForm::begin([
                 'action' => Url::to(['user/add-role']),
                 'enableAjaxValidation' => true
             ]) ?>
@@ -405,7 +405,7 @@ $this->title = "Пользователи";
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <input type="submit" class="btn btn-primary pull-right" value="Добавить">
             </div>
-            <? ActiveForm::end(); ?>
+            <?php ActiveForm::end(); ?>
         </div>
     </div>
 </div>
