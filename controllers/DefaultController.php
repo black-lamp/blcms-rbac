@@ -9,12 +9,13 @@ use bl\rbac\models\form\role\CreateRole;
 use bl\rbac\models\form\user\AddRole;
 use bl\rbac\models\form\user\CreateUser;
 use Yii;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 
 class DefaultController extends Controller
 {
 
-    /*public function behaviors()
+    public function behaviors()
     {
         return [
             'access' => [
@@ -31,7 +32,7 @@ class DefaultController extends Controller
                 ]
             ]
         ];
-    }*/
+    }
 
     public function actionIndex()
     {
