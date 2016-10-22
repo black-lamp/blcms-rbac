@@ -30,6 +30,7 @@ class m161022_150922_remove_all_roles_create_new extends Migration
 
 
         $rbacManager = $auth->createRole('rbacManager');
+        $rbacManager->description = 'RBAC manager';
         $auth->add($rbacManager);
 
         $auth->addChild($rbacManager, $createUser);

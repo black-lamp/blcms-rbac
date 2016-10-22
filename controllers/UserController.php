@@ -87,14 +87,14 @@ class UserController extends Controller
             }
             if($model->validate()) {
                 if($model->add()) {
-                    Yii::$app->flashNotifications->success('Role successfully assigned.');
+                    Yii::$app->session->setFlash('info', 'Role successfully assigned.');
                 }
                 else {
-                    Yii::$app->flashNotifications->error('Internal server error.');
+                    Yii::$app->session->setFlash('error', 'Internal server error.');
                 }
             }
             else {
-                Yii::$app->flashNotifications->addModelErrors($model);
+                Yii::$app->session->setFlash('error', 'Reques did not pass validation.');
             }
 
             return $this->redirect(Url::to(['default/index']));
@@ -110,20 +110,19 @@ class UserController extends Controller
         if($model->load(Yii::$app->request->get(), '')) {
             if ($model->validate()) {
                 if($model->remove()) {
-                    Yii::$app->flashNotifications->success('Role successfully removed from user.');
+                    Yii::$app->session->setFlash('info', 'Role successfully removed from user.');
                 }
                 else {
-                    Yii::$app->flashNotifications->error('Internal server error.');
+                    Yii::$app->session->setFlash('info', 'Role has not removed.');
                 }
             }
             else {
-                Yii::$app->flashNotifications->addModelErrors($model);
+                Yii::$app->session->setFlash('info', 'Reques did not pass validation.');
             }
             return $this->redirect(Url::to(['default/index']));
         }
         else {
             throw new BadRequestHttpException();
         }
-
     }
 }
