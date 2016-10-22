@@ -27,7 +27,7 @@ class DefaultController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['index'],
-                        'roles' => ['manageRbac']
+                        'roles' => ['rbacManager']
                     ]
                 ]
             ]
